@@ -32,9 +32,24 @@
       width: 100%;
     }
 
+    .logo-row {
+      margin-bottom: 20px;
+    }
+
     /* 1. โลโก้ */
     .logo {
       width: 100px;
+      margin-bottom: 20px;
+    }
+
+    .logo-partner {
+      width: 100px; /* ขนาดกว้าง 100px เท่ากัน */
+      margin: 5px 10px; /* เพิ่มระยะห่างเล็กน้อย */
+      vertical-align: middle; /* จัดให้อยู่กึ่งกลางแนวตั้ง */
+    }
+
+    .logo-ad {
+      width: 150px; /* ขนาดใหญ่ขึ้น */
       margin-bottom: 20px;
     }
 
@@ -44,9 +59,9 @@
       font-weight: 600;
       margin-bottom: 30px;
       color: #333;
-    }
+    }    
 
-    /* 3. ปุ่มกด */
+    
     .btn-custom {
       background-color: #743d88; /* สีม่วง (เหมือนในหน้า login) */
       color: white;
@@ -72,6 +87,10 @@
       .main-container {
         padding: 30px;
       }
+      .logo-partner {
+        width: 80px;
+        margin: 5px;
+      }
     }
   </style>
 </head>
@@ -79,7 +98,14 @@
 
   <div class="main-container">
     
-    <img src="https://quota.jc.tu.ac.th/images/jc_logo.png" alt="Logo" class="logo">
+    <div class="logo-row">
+      <img src="https://raw.githubusercontent.com/Jcresearch-tu/elearning.online.phase3/main/National_Broadcasting_and_Telecommunications_Commission_(Thailand)_Seal.png" alt="Logo กสทช." class="logo-partner">
+      <img src="https://raw.githubusercontent.com/Jcresearch-tu/elearning.online.phase3/main/logo กทปส.png" alt="Logo กทปส." class="logo-partner">
+      <img src="https://raw.githubusercontent.com/Jcresearch-tu/elearning.online.phase3/main/Thammasat_main_logo.png" alt="Logo มธ." class="logo-partner">
+      <img src="https://quota.jc.tu.ac.th/images/jc_logo.png" alt="Logo JC" class="logo-partner">
+    </div>
+
+    <img src="https://raw.githubusercontent.com/Jcresearch-tu/elearning.online.phase3/main/AD Logo.png" alt="Logo AD" class="logo-ad">
     
     <h1 class="title">
       ระบบ E-learning หลักสูตรอบรมพัฒนาทักษะการผลิตเสียงบรรยายภาพสำหรับบุคคลทั่วไป โดยแกนนำผู้ผลิต (ออนไลน์)
