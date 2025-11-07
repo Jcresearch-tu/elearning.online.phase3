@@ -7,52 +7,104 @@
   <link rel="icon" href="https://quota.jc.tu.ac.th/images/jc_logo.png" type="image/png">
   
   <style>
-    @import url('https://fonts.googleapis.com/css2?family=Noto+Sans+Thai&display=swap');
 
-     * {
+
+    *{
       margin: 0;
       padding: 0;
       box-sizing: border-box; /* สำคัญมาก: ตัวแก้ปัญหาปลิ้นขอบ */
-      font-family: "Noto Sans Thai", sans-serif;
     }
 
-   .center-container {
-        display: flex;
-        justify-content: center;  /* Center horizontally */
-        align-items: flex-start;  /* Align items to the top */
-        height: 100vh;            /* Full height of viewport */
-        text-align: center;       /* Center text content */
-      }
+   body {
+      background-color: #f4f4f4;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      min-height: 100vh;
+      padding: 20px; /* เว้นขอบให้ body */
+    }
 
-      /* Responsive image for larger screens */
-      .responsive-image {
-        max-width: 100vw;  /* Max width to fill viewport width */
-        max-height: 100vh; /* Max height to fill viewport height */
-        width: auto;
-        height: auto;
-        display: block;
-        margin: 0; /* Remove any default margin */
-      }
+    /* กล่องหลักตรงกลาง */
+    .main-container {
+      background-color: #ffffff;
+      border-radius: 10px;
+      box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+      padding: 40px;
+      text-align: center;
+      max-width: 700px;
+      width: 100%;
+    }
 
-      /* Media query for mobile devices */
-      @media (max-width: 768px) {
-        .responsive-image {
-          width: 120vw;            /* Increase width to 120% of viewport */
-          height: 100vh;           /* Keep the height to 100% of viewport */
-          object-fit: cover;       /* Crop the image to fit the container */
-          object-position: top center; /* Focus on the top center of the image */
-        }
-      }
+    /* Div สำหรับจัดกลุ่มโลโก้ 4 ตัวบน */
+    .logo-row {
+      margin-bottom: 20px;
+      display: flex;
+      flex-wrap: wrap;
+      justify-content: center;
+      align-items: center;
+    }
 
-      /* For even smaller devices or more cropping */
-      @media (max-width: 480px) {
-        .responsive-image {
-          width: 150vw;            /* Increase width to 150% of viewport to crop more */
-          height: 100vh;           /* Keep the height to 100% of viewport */
-          object-fit: cover;       /* Crop the image more */
-          object-position: top center; /* Focus on the top center */
-        }
-      }
+    /* 1. โลโก้ 4 ตัวบน (ขนาดเท่ากัน) */
+    .logo-partner {
+      width: 100px;
+      margin: 5px 10px;
+      vertical-align: middle;
+    }
+
+    /* 2. โลโก้ AD (ตัวใหญ่) */
+    .logo-ad {
+      width: 90%;
+      max-width: 400px;
+      height: auto;
+      margin-bottom: 0; /* ลดระยะห่าง */
+    }
+
+    /* 2. ชื่อโครงการ */
+    .title {
+      font-size: 1.5rem;
+      font-weight: 600;
+      margin-top: 0;
+      margin-bottom: 30px;
+      color: #333;
+    }
+
+    /* 3. ปุ่มกด */
+    .btn-custom {
+      font-family: "Noto Sans Thai", sans-serif;
+      background-color: #743d88;
+      color: white;
+      border: none;
+      padding: 12px 30px;
+      font-size: 1.1rem;
+      font-weight: 600;
+      border-radius: 5px;
+      cursor: pointer;
+      transition: background-color 0.3s;
+      text-decoration: none;
+    }
+
+    .btn-custom:hover {
+      background-color: #5e0f83;
+    }
+
+    /* ปรับ CSS สำหรับมือถือ */
+    @media (max-width: 768px) {
+      .title {
+        font-size: 1.2rem;
+      }
+      .main-container {
+        padding: 20px;
+      }
+      
+      .logo-partner {
+        width: 80px;
+        margin: 5px;
+      }
+      
+      .logo-ad {
+         width: 100%;
+      }
+    }
   </style>
 </head>
 <body>
