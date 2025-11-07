@@ -1,115 +1,135 @@
 <!DOCTYPE html>
 <html>
-  <head>
-    <title>ระบบ E-learning ความรู้พื้นฐานด้านเสียงบรรยายภาพ</title>
-    <meta charset="UTF-8">
-    <link rel="icon" href="https://quota.jc.tu.ac.th/images/jc_logo.png" type="image/png">
-    <style>
-      /* Container to center the content (flexbox) */
-      .center-container {
-        display: flex;
-        justify-content: center;  /* Center horizontally */
-        align-items: flex-start;  /* Align items to the top */
-        height: 100vh;            /* Full height of viewport */
-        text-align: center;       /* Center text content */
-      }
+<head>
+  <title>ระบบ E-learning หลักสูตรอบรมพัฒนาทักษะการผลิตเสียงบรรยายภาพสำหรับนักสื่อสารโดยแกนนำผู้ผลิต (ออนไลน์)</title>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link rel="icon" href="https://quota.jc.tu.ac.th/images/jc_logo.png" type="image/png">
+  
+  <style>
+    /* 1. CSS ใหม่ทั้งหมด (แทนที่ของเดิม) */
+    @import url('https://fonts.googleapis.com/css2?family=Noto+Sans+Thai:wght@400;600&display=swap');
 
-      /* Responsive image for larger screens */
-      .responsive-image {
-        max-width: 100vw;  /* Max width to fill viewport width */
-        max-height: 100vh; /* Max height to fill viewport height */
-        width: auto;
-        height: auto;
-        display: block;
-        margin: 0; /* Remove any default margin */
-      }
+    body {
+      font-family: "Noto Sans Thai", sans-serif;
+      background-color: #f4f4f4; /* สีพื้นหลังเว็บ */
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      height: 100vh;
+      margin: 0;
+      padding: 20px;
+    }
 
-      /* Media query for mobile devices */
-      @media (max-width: 768px) {
-        .responsive-image {
-          width: 120vw;            /* Increase width to 120% of viewport */
-          height: 100vh;           /* Keep the height to 100% of viewport */
-          object-fit: cover;       /* Crop the image to fit the container */
-          object-position: top center; /* Focus on the top center of the image */
-        }
-      }
+    /* กล่องหลักตรงกลาง */
+    .main-container {
+      background-color: #ffffff;
+      border-radius: 10px;
+      box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+      padding: 40px;
+      text-align: center;
+      max-width: 700px;
+      width: 100%;
+    }
 
-      /* For even smaller devices or more cropping */
-      @media (max-width: 480px) {
-        .responsive-image {
-          width: 150vw;            /* Increase width to 150% of viewport to crop more */
-          height: 100vh;           /* Keep the height to 100% of viewport */
-          object-fit: cover;       /* Crop the image more */
-          object-position: top center; /* Focus on the top center */
-        }
+    /* 1. โลโก้ */
+    .logo {
+      width: 100px;
+      margin-bottom: 20px;
+    }
+
+    /* 2. ชื่อโครงการ */
+    .title {
+      font-size: 1.5rem;
+      font-weight: 600;
+      margin-bottom: 30px;
+      color: #333;
+    }
+
+    /* 3. ปุ่มกด */
+    .btn-custom {
+      background-color: #743d88; /* สีม่วง (เหมือนในหน้า login) */
+      color: white;
+      border: none;
+      padding: 12px 30px;
+      font-size: 1.1rem;
+      font-weight: 600;
+      border-radius: 5px;
+      cursor: pointer;
+      transition: background-color 0.3s;
+      text-decoration: none; /* กันกรณีใช้แท็ก <a> */
+    }
+
+    .btn-custom:hover {
+      background-color: #5e0f83;
+    }
+
+    /* ปรับขนาดตัวอักษรบนมือถือ */
+    @media (max-width: 768px) {
+      .title {
+        font-size: 1.2rem;
       }
-    </style>
-  </head>
-  <body>
-    <div id="link-container" class="center-container">
-      <!-- The link will be displayed here based on detection -->
-    </div>
+      .main-container {
+        padding: 30px;
+      }
+    }
+  </style>
+</head>
+<body>
+
+  <div class="main-container">
     
-    <script>
-    // Function to detect if the user is on an iOS device
+    <img src="https://quota.jc.tu.ac.th/images/jc_logo.png" alt="Logo" class="logo">
+    
+    <h1 class="title">
+      ระบบ E-learning หลักสูตรอบรมพัฒนาทักษะการผลิตเสียงบรรยายภาพสำหรับบุคคลทั่วไป โดยแกนนำผู้ผลิต (ออนไลน์)
+    </h1>
+    
+    <button class="btn-custom" onclick="redirectToApp()">
+      เข้าสู่ระบบ / ลงทะเบียน
+    </button>
+  </div>
+  
+  <script>
+    // --- (ฟังก์ชันตรวจสอบอุปกรณ์) ---
     function isIOS() {
       return /iPhone|iPad|iPod/i.test(navigator.userAgent);
     }
-
-    // Function to detect if the user is using Facebook's in-app browser
     function isFacebookApp() {
       return /FBAN|FBAV/i.test(navigator.userAgent);
     }
-
-    // ✅ (เพิ่มฟังก์ชันนี้) Function to detect if the user is using LINE's in-app browser
     function isLineApp() {
       return /Line/i.test(navigator.userAgent);
     }
-     
-
-    // --- ✅ (แก้ไขส่วนนี้) ฟังก์ชันสร้างลิงก์ ---
-    function generateLink() {
-      var linkContainer = document.getElementById('link-container');
-      var link = document.createElement('a');
-      var video = document.createElement('video');
     
-      // 1. สร้าง Array เก็บ URL ของ Apps Script ทั้งหมดของคุณ
+    // --- 3. [แก้ไข] ฟังก์ชันสำหรับปุ่ม (เปลี่ยนชื่อจาก generateLink) ---
+    function redirectToApp() {
+      
+      // 1. Array URLs (เหมือนเดิม)
       const scriptUrls = [
-        'https://script.google.com/macros/s/AKfycbzNPI_VAjy4z8PFjGABzMCRRdVib_tYaBG8xrIbFmAYlSVOEiUUfCQ3j3ItQA65HZAD/exec', // URL จากบัญชีที่ 1
-        'https://script.google.com/macros/s/AKfycby5e7_Is9emFWH3TuRpt6eqftIxswJS42cyP5cF_rRsKwkmr0RG9Yf-rN8Eqx8bOizz/exec', // URL จากบัญชีที่ 2
-        'https://script.google.com/macros/u/1/s/AKfycbwJsacYlgh4YaT0D6fRn3Oe8Av8IQEwONsV6xN1SW7IhNkSlvPoK2cQbfdudbSdWDw/exec',  // URL จากบัญชีที่ 3 (เพิ่มได้เรื่อยๆ)
-        'https://script.google.com/a/macros/tu.ac.th/s/AKfycbwuitn1FwJ8wNZcds8d_k-mLcn1GL8P31Lf1BDVT2smwMVNyDi0n80lQhp_ed5IzIMKOQ/exec'
+        'https://script.google.com/a/macros/jc.tu.ac.th/s/AKfycbz_r59WKzetIdaGZncuyYS-ARuC4fR1rZxU3UvyoJPfcJKpsBNxXlUlIHFwlLl7AR2wHw/exec', // URL จากบัญชีที่ 1
+        'https://script.google.com/a/macros/jc.tu.ac.th/s/AKfycbwVIn3x9Jm0-RZM6daJ6lBPrpgeHW177HUnrKtaAd7DAd16aSw5ir_xpt8_MwnZWdJM/exec', // URL จากบัญชีที่ 2
+        'https://script.google.com/a/macros/jc.tu.ac.th/s/AKfycbyRRTqKdQSRu-Cu4zg3ikQFycthraz4usqWQ4gKWzzjuP357vpadbDf2aB5dPpK15tzrQ/exec',  // URL จากบัญทีที่ 3
+        'https://script.google.com/a/macros/jc.tu.ac.th/s/AKfycbwfdpTnrtuQIO_cLTrDEq_a6Yxjll_rTWDwoKiYC1Bjjr63Lbq-N_jiBYlKUfztuGyV/exec'
       ];
 
-      // 2. สุ่มเลือก URL 1 อันจาก Array
+      // 2. สุ่ม URL (เหมือนเดิม)
       const randomIndex = Math.floor(Math.random() * scriptUrls.length);
       const selectedUrl = scriptUrls[randomIndex];
-
-      // สร้างลิงก์สำหรับเปิดใน Safari (สำหรับ iOS)
       const safariUrl = 'x-safari-' + selectedUrl;
 
-      // 3. กำหนด href โดยใช้ URL ที่สุ่มได้
-      if (isIOS() && (isFacebookApp() || isLineApp())) {
-        link.href = safariUrl;
-      } else {
-        link.href = selectedUrl;
-      }
-    
-      // (ส่วนของการตั้งค่าวิดีโอเหมือนเดิม)
-      video.src = './Github Page.mp4';
-      video.className = 'responsive-image';
-      video.autoplay = true;
-      video.loop = true;
-      video.muted = true;
-      video.playsInline = true; 
-    
-      link.target = '_blank'; 
-      link.appendChild(video); 
-      linkContainer.appendChild(link);
-    }
+      let finalUrl;
 
-    // Run the function to generate the correct link
-    generateLink();
-    </script>
-  </body>
+      // 3. กำหนด URL (เหมือนเดิม)
+      if (isIOS() && (isFacebookApp() || isLineApp())) {
+        finalUrl = safariUrl;
+      } else {
+        finalUrl = selectedUrl;
+      }
+
+      // 4. เปิดลิงก์ในแท็บใหม่ (เหมือน target='_blank' เดิม)
+      window.open(finalUrl, '_blank');
+    }
+  </script>
+</body>
 </html>
