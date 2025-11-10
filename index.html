@@ -7,7 +7,7 @@
   <link rel="icon" href="https://quota.jc.tu.ac.th/images/jc_logo.png" type="image/png">
   
   <style>
-    /* 1. CSS ใหม่ทั้งหมด (แทนที่ของเดิม) */
+
     @import url('https://fonts.googleapis.com/css2?family=Noto+Sans+Thai:wght@400;600&display=swap');
 
     body {
@@ -135,27 +135,27 @@
       
       // 1. Array URLs (เหมือนเดิม)
       const scriptUrls = [
-        'https://script.google.com/a/macros/jc.tu.ac.th/s/AKfycbz_r59WKzetIdaGZncuyYS-ARuC4fR1rZxU3UvyoJPfcJKpsBNxXlUlIHFwlLl7AR2wHw/exec', // URL จากบัญชีที่ 1
-        'https://script.google.com/a/macros/jc.tu.ac.th/s/AKfycbwVIn3x9Jm0-RZM6daJ6lBPrpgeHW177HUnrKtaAd7DAd16aSw5ir_xpt8_MwnZWdJM/exec', // URL จากบัญชีที่ 2
-        'https://script.google.com/a/macros/jc.tu.ac.th/s/AKfycbyRRTqKdQSRu-Cu4zg3ikQFycthraz4usqWQ4gKWzzjuP357vpadbDf2aB5dPpK15tzrQ/exec',  // URL จากบัญทีที่ 3
-        'https://script.google.com/a/macros/jc.tu.ac.th/s/AKfycbwfdpTnrtuQIO_cLTrDEq_a6Yxjll_rTWDwoKiYC1Bjjr63Lbq-N_jiBYlKUfztuGyV/exec'
+        'https://script.google.com/macros/s/AKfycbxd6sf1l7lrlZryqJ3-W4w7C6118_Qr4XQZ7YyuyigDqb9hBEcfl3EFpg8EcA-yNe0a/exec', // URL จากบัญชีที่ 1
+        'https://script.google.com/a/macros/jc.tu.ac.th/s/AKfycbwmNGWutgpci-FFH3hJ5oHUB-e-FXJANOL1013SRbcq74KTE0ZEz9Z75uM87MzrJ4xU/exec', // URL จากบัญชีที่ 2
+        'https://script.google.com/a/macros/jc.tu.ac.th/s/AKfycbz3R0ptLH3hmhIjSVTBqRzCpziC3Dgi_ZnIcgpuMq4rE1W94ZutVtvpjPVE0pgozc_WoA/exec',  // URL จากบัญทีที่ 3
+        'https://script.google.com/a/macros/jc.tu.ac.th/s/AKfycbxo_LQLMwzQpgkGaxLXMYYn99i6aLNLKgeGFsPXw-9xRZtyuCVpGAuBs4GK_jJOC7hbNA/exec'
       ];
 
-      // 2. สุ่ม URL (เหมือนเดิม)
+      
       const randomIndex = Math.floor(Math.random() * scriptUrls.length);
       const selectedUrl = scriptUrls[randomIndex];
       const safariUrl = 'x-safari-' + selectedUrl;
 
       let finalUrl;
 
-      // 3. กำหนด URL (เหมือนเดิม)
+      
       if (isIOS() && (isFacebookApp() || isLineApp())) {
         finalUrl = safariUrl;
       } else {
         finalUrl = selectedUrl;
       }
 
-      // 4. เปิดลิงก์ในแท็บใหม่ (เหมือน target='_blank' เดิม)
+      
       window.open(finalUrl, '_blank');
     }
   </script>
