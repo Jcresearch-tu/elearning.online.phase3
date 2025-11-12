@@ -93,6 +93,29 @@
         margin: 5px;
       }
     }
+    /* ===== โค้ดที่เพิ่มเข้ามาสำหรับมือถือแนวนอน ===== */
+    @media (max-height: 500px) and (orientation: landscape) {
+      body {
+        height: auto;         /*ยกเลิกการบังคับความสูง 100vh */
+        align-items: flex-start; /*เปลี่ยนจากจัดกลาง เป็นจัดชิดบน */
+        padding-top: 20px;     /*เพิ่มระยะห่างด้านบนเล็กน้อย */
+        padding-bottom: 20px;  /*เพิ่มระยะห่างด้านล่าง (เพื่อให้เลื่อนได้) */
+      }
+
+      .main-container {
+        padding: 25px; /*ลด padding ของกล่องลงเล็กน้อย */
+      }
+
+      .title {
+        font-size: 1.1rem; /*ลดขนาดตัวอักษร title ลงอีก */
+        margin-bottom: 20px;
+      }
+
+      .logo-partner {
+        width: 60px; /*ลดขนาดโลโก้ partner */
+      }
+    }
+    /
   </style>
 </head>
 <body>
